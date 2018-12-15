@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private String htmlPageUrl = "http://www.gettyimagesgallery.com/collections/archive/slim-aarons.aspx/";
 
 
-    Button btn1, btn2;
 
 
 
