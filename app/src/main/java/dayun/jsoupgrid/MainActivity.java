@@ -61,12 +61,11 @@ public class MainActivity extends AppCompatActivity {
             protected Void doInBackground(Void... params) {
                 try {
                     Document doc = Jsoup.connect(htmlPageUrl).get();
-                    Elements links = doc.select("[src]");
+                    Elements links = doc.select("img[src]");
 
                     for (Element src : links) {
-                        if (src.tagName().equals("img")) {
-                            hrefArray.add(src.attr("abs:src"));
-                        }
+                        hrefArray.add(src.attr("abs:src"));
+
                     }
                     for (int i = 0; i < hrefArray.size(); i++) {
                         String str = hrefArray.get(i);
