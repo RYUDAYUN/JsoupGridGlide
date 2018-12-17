@@ -1,7 +1,7 @@
 package dayun.jsoupgrid;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -43,12 +43,18 @@ public class MainActivity extends AppCompatActivity {
 
         private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
 
-            Bitmap bitmap;
+            private ProgressDialog progressDialog;
 
 
             @Override
             protected void onPreExecute() {
+
                 super.onPreExecute();
+                progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progressDialog.setMessage("기다려주세요");
+                progressDialog.show();
+
             }
 
             @Override
@@ -78,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Void result) {
                 gridView.setAdapter(new GridAdapter(act,imageArray));
+                progressDialog.dismiss();
+
                 Toast.makeText(MainActivity.this, "이미지 출력", Toast.LENGTH_LONG).show();
 
 
